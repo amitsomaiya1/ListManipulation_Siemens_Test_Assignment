@@ -25,3 +25,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Additional guidlines:
+- Open the folder in VS Code OR open command prompt  and goto the folder path
+- Run command as: npm install (Note: Please make sure your local CLI is up to date, I have created this project in Angular 12 + Bootstrap 5)
+- After successful installation run command as: ng serve, it will run on the port http://localhost:4200/
+- Copy the http://localhost:4200/ and open this in the web browser.
