@@ -1,0 +1,60 @@
+
+<div class="dual-list-conatiner">
+  <div class="dual-list mt-5">
+    <ul class="list-one">
+      <li class="list-head"><h4>Station List A</h4></li>
+      <li *ngFor="let item of stationsListA;" [ngClass]="{'selectedStationA': item.selected}" (click)="selectedListA(item)">
+        <label for="{{item.station}}">{{item.station}}</label>
+      </li>
+      <li *ngIf="!stationsListA.length">
+        <label class="text-danger">No records!</label>
+      </li>
+    </ul>
+    <ul class="no-border list-one mt-5 ">
+      <li class="text-center">
+          <button class="btn btn-info" (click)="moveToListB()" [disabled]="!tempListA.length">Move to List B >></button>
+      </li>
+      <li class="text-center">
+          <button class="btn btn-primary" (click)="moveToListA()" [disabled]="!tempListB.length"> << Move to List A</button>
+      </li>
+      <li class="text-center">
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModel">Add</button>
+      </li>
+      <li class="text-center">
+          <button class="btn btn-danger" (click)="removeSelected()" [disabled]="!tempListA.length && !tempListB.length">Delete</button>
+      </li>
+    </ul>
+    <ul class="list-one">
+      <li class="list-head"><h4>Station List B</h4></li>
+      <li *ngFor="let item of stationsListB" [ngClass]="{'selectedStationB': item.selected}" (click)="selectedListB(item)">
+        <label for="{{item.station}}">{{item.station}}</label>
+      </li>
+      <li *ngIf="!stationsListB.length">
+        <label class="text-danger">No records!</label>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addModel" tabindex="-1" aria-labelledby="addModelLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addModelLabel">Add Station</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="stationName">Station Name:</label>
+            <input type="text" class="form-control" id="stationName" placeholder="Enter station name" [(ngModel)]="stationName">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="add('a', stationName)">Add to List A</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="add('b', stationName)">Add to List B</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,52 @@
+.dual-list-conatiner{
+    position: relative;
+    .dual-list{
+        top: 50%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+
+        ul.list-one {
+            display: inline;
+            float: left;
+            list-style-type: none;
+            padding: 0;
+            border: 1px solid #aaa;
+        }
+
+        ul li {
+        padding: 8px 16px;
+        border-bottom: 1px solid #ddd;
+        }
+
+        ul li:last-child {
+        border-bottom: none;
+        }
+
+        .selectedStationA{
+            background-color: #76CFDF;
+            color: #fff;
+        }
+
+        .selectedStationB{
+            background-color: rgb(228, 128, 145);
+            color: #fff;
+        }
+        ul.no-border, ul.no-border li{
+            border: none;
+        }
+        .list-head{
+            background-color:#ffc6c640;
+        }
+    }
+
+    /* iPads (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    /* Styles */
+        .dual-list{
+            top: 50%;
+            left: 30%;
+            transform: translate(-30%, 0%);
+        }
+    }
+}
